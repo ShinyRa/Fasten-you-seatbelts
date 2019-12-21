@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/header.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/font.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/cards.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/nav.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/footer.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/login.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/buttons.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/links.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/page.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/chat.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/matching.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/profilepage.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Components/requests.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/Pages/index.css" />
+    <link rel="stylesheet" type="text/css" href="./Resources/Css/main.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
+    <script src="./Resources/Js/jquery-3.3.1.slim.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="./Resources/Js/main.js"></script>
+    <script src="./Resources/Js/Components/header.js"></script>
+    <script src="./Resources/Js/Components/login.js"></script>
+    <script src="./Resources/Js/Components/select-2.js"></script>
+    <script src="./Resources/Js/Components/ajax.js"></script>
+    <link rel="icon" href="./Resources/Img/favicon.ico" type="image/x-icon"/>
+    <title>Travel buddies</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <a href="#homepage" title="Corendon">
+              <img src="./Resources/Img/header-logo.svg" height="37px" width="200px"/>
+          </a>
+            <div class="header-buttons hidden-for-small">
+                <a href="#about" title="Over ons">About us</a>&nbsp;&nbsp;|&nbsp;
+                <div class="login-button">
+                    <label onclick="toggleClass('login')" title="Log in">Inloggen</label>
+                </div>
+                <div class="logout-button">
+                    <label onclick="sessionStorage.removeItem('token');  window.location.replace('#homepage'); window.location.reload()" title="Log out">Uitloggen</label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<nav>
+    <div class="nav-content">
+        <ul>
+            <li id="mobile-menu" onClick="expandMenu(this)">Menu</li>
+            <a href="#requests" class="menu-item">
+                <li>Uitnodigingen</li>
+            </a>
+            <a href="#matching" class="menu-item">
+                <li>Zoeken</li>
+            </a>
+            <a href="#chat" class="menu-item">
+                <li>Chat</li>
+            </a>
+            <a href="#profile" class="menu-item">
+                <li>Mijn profiel</li>
+            </a>
+            <div class="hidden-for-large">
+                <a href="#about" class="menu-item">
+                    <li>About us</li>
+                </a>
+                <li onclick="toggleClass('login')" id="login-mobile">Inloggen</li>
+                <li onclick="sessionStorage.removeItem('token');  window.location.replace('#homepage'); window.location.reload()"
+                    id="logout-mobile">Uitloggen
+                </li>
+            </div>
+        </ul>
+    </div>
+</nav>
+
+    <div id="app">
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <ul>
+                <li>
+                    <a target="_blank" href="Resources/Documents/Gebruikshandleiding.pdf">Gebruikershandleiding</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a href="#about">About us</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <article class="contains-table">
+        <div id="modal-login" class="modal modal-login-hide">
+            <form id="login" class="modal-content full-width">
+                <div class="modal-top">
+                    <h1>Inloggen</h1>
+                    <span onclick="toggleClass('login')" class="close" title="Close">&times;</span>
+                </div>
+                <div class="form-error">
+                    <p class="error-text"></p>
+                </div>
+                <div class="modal-middle">
+                    <input required id="username-login" type="text" placeholder="Gebruikersnaam" />
+                    <input required id="password-login" type="password" placeholder="Wachtwoord" />
+                    <div class="remember">
+                        <label><input type="checkbox" /> Remember me</label>
+                    </div>
+                    <div class="password-forget">
+                        <label onclick="toggleClass('login', 'forgotten')">Wachtwoord vergeten?</label>
+                    </div>
+                    <button type="submit" class="button-flat">Login</button>
+                </div>
+                <div class="modal-bottom">
+                    <label onclick="toggleClass('login', 'registration')" class="register" >Nog geen account? Klik hier om te registreren</label>
+                </div>
+            </form>
+        </div>
+
+        <div id="modal-registration" class="modal modal-registration-hide">
+            <form id="registration" class="modal-content full-width">
+                <div class="modal-top">
+                    <h1>Registreren</h1>
+                    <span onclick="toggleClass('registration')" class="close" title="Close">&times;</span>
+                </div>
+                <div class="form-error">
+                    <p class="error-text"></p>
+                </div>
+                <div class="modal-middle">
+                    <input required id="firstname" type="text" placeholder="Voornaam" />
+                    <input id="middlename" type="text" placeholder="Tussenvoegsel" />
+                    <input required id="lastname" type="text" placeholder="Achternaam" />
+                    <input required id="birthdate" type="date" placeholder="Geboortedatum" />
+                    <input required id="address" type="text" placeholder="adres" />
+                    <input required id="postcode" type="text" placeholder="Postcode" />
+                    <input required id="telefoonnummer" type="text" placeholder="Telefoonnummer" />
+                    <input required id="email-registration" value="" type="email" placeholder="Email" />
+                    <div class="select2-container-registration">
+                        <select required id="interests-registration" class="select2" multiple="multiple">
+                            <option value="Voetbal">Voetbal</option>
+                            <option value="Handbal">Handbal</option>
+                            <option value="Volleybal">Volleybal</option>
+                            <option value="Gymnastiek">Gymnastiek</option>
+                            <option value="turnen">turnen</option>
+                            <option value="Hardlopen">Hardlopen</option>
+                            <option value="Atletiek">Atletiek</option>
+                            <option value="Zwemmen">Zwemmen</option>
+                            <option value="waterpolo">waterpolo</option>
+                            <option value="Tennis">Tennis</option>
+                            <option value="Badminton">Badminton</option>
+                            <option value="Hengelsport">Hengelsport</option>
+                            <option value="Hockey">Hockey</option>
+                            <option value="Roeien">Roeien</option>
+                            <option value="Zeilen">Zeilen</option>
+                            <option value="Watersport">Watersport</option>
+                            <option value="(midget-)golf">(midget-)golf</option>
+                            <option value="Judo">Judo</option>
+                            <option value="Wandelsport">Wandelsport</option>
+                            <option value="(kruis-)boogschieten">(kruis-)boogschieten</option>
+                            <option value="Biljarten">Biljarten</option>
+                            <option value="darten">darten</option>
+                            <option value="Tafeltennis">Tafeltennis</option>
+                            <option value="Dammen">Dammen</option>
+                            <option value="schaken">schaken</option>
+                            <option value="Bridgen">Bridgen</option>
+                            <option value="kaarten">kaarten</option>
+                            <option value="Andere denksport">Andere denksport</option>
+                            <option value="Sjoelbakken">Sjoelbakken</option>
+                            <option value="Honkbal">Honkbal</option>
+                            <option value="softbal">softbal</option>
+                            <option value="Basketbal">Basketbal</option>
+                            <option value="korfbal">korfbal</option>
+                            <option value="Kegelen">Kegelen</option>
+                            <option value="bowling">bowling</option>
+                            <option value="Rugby">Rugby</option>
+                            <option value="Paardrijden">Paardrijden</option>
+                            <option value="Motorrijden">Motorrijden</option>
+                            <option value="(kunst-)schaatsen">(kunst-)schaatsen</option>
+                            <option value="Ijshockey">Ijshockey</option>
+                            <option value="Skeeleren">Skeeleren</option>
+                            <option value="Skaten">Skaten</option>
+                            <option value="Jeu de boules">Jeu de boules</option>
+                            <option value="Petanque">Petanque</option>
+                            <option value="Joggen">Joggen</option>
+                            <option value="Steppen">Steppen</option>
+                            <option value="Fitness">Fitness</option>
+                            <option value="Tae-bo">Tae-bo</option>
+                            <option value="Zen">Zen</option>
+                            <option value="Yoga en mindfulness hobbies">Yoga en mindfulness hobbies</option>
+                            <option value="Mediteren">Mediteren</option>
+                            <option value="Yoga">Yoga</option>
+                            <option value="Tai-chi">Tai-chi</option>
+                            <option value="Bio-energetica">Bio-energetica</option>
+                            <option value="Sportief en bewegen hobbies">Sportief en bewegen hobbies</option>
+                            <option value="Muziek in het algemeen">Muziek in het algemeen</option>
+                            <option value="Klassieke muziek">Klassieke muziek</option>
+                            <option value="Lichte muziek">Lichte muziek</option>
+                            <option value="Pop">Pop</option>
+                            <option value="Rock">Rock</option>
+                            <option value="R&B">R&B</option>
+                            <option value="Rap">Rap</option>
+                            <option value="Opera">Opera</option>
+                            <option value="Operette">Operette</option>
+                            <option value="Kerkmuziek">Kerkmuziek</option>
+                            <option value="Jazz">Jazz</option>
+                            <option value="Zingen individueel">Zingen individueel</option>
+                            <option value="Koorzang">Koorzang</option>
+                            <option value="Fanfare">Fanfare</option>
+                            <option value="Piano">Piano</option>
+                            <option value="Orgel">Orgel</option>
+                            <option value="Synthesizer">Synthesizer</option>
+                            <option value="Xylofoon">Xylofoon</option>
+                            <option value="Viool">Viool</option>
+                            <option value="Cello">Cello</option>
+                            <option value="Bas">Bas</option>
+                            <option value="Gitaar">Gitaar</option>
+                            <option value="Trompet">Trompet</option>
+                            <option value="Trombone">Trombone</option>
+                            <option value="Saxofoon">Saxofoon</option>
+                            <option value="(blok)fluit">(blok)fluit</option>
+                            <option value="Dwarsflui">Dwarsfluit</option>
+                            <option value="Mondharmonica">Mondharmonica</option>
+                            <option value="Accordeon">Accordeon</option>
+                            <option value="Percussie">Percussie</option>
+                            <option value="Didgeridoo">Didgeridoo</option>
+                            <option value="Djembee">Djembee</option>
+                            <option value="Dans hobbies">Dans hobbies</option>
+                            <option value="Klassiek ballet">Klassiek ballet</option>
+                            <option value="Jazz-ballet">Jazz-ballet</option>
+                            <option value="Volksdansen">Volksdansen</option>
+                            <option value="Stijldansen">Stijldansen</option>
+                            <option value="Street-dance">Street-dance</option>
+                            <option value="Break-dance">Break-dance</option>
+                            <option value="Salsa">Salsa</option>
+                            <option value="Literatuur en lezen hobbies">Literatuur en lezen hobbies</option>
+                            <option value="Lezen algemeen">Lezen algemeen</option>
+                            <option value="Romans">Romans</option>
+                            <option value="Reisverhalen">Reisverhalen</option>
+                            <option value="Reizen">Reizen</option>
+                            <option value="Detectives">Detectives</option>
+                            <option value="Science fiction">Science fiction</option>
+                            <option value="Poëzie">Poëzie</option>
+                            <option value="Kranten">Kranten</option>
+                            <option value="Tijdschriften">Tijdschriften</option>
+                            <option value="Radio luisteren">Radio luisteren</option>
+                            <option value="Televisie kijken">Televisie kijken</option>
+                            <option value="Film opnemen">Film opnemen</option>
+                            <option value="Computer spelletjes">Computer spelletjes</option>
+                            <option value="Internet surfen">Internet surfen</option>
+                            <option value="Chatten">Chatten</option>
+                            <option value="E-mailen">E-mailen</option>
+                            <option value="Foto-scans bewerken">Foto-scans bewerken</option>
+                            <option value="Software ontwikkelen">Software ontwikkelen</option>
+                            <option value="Cultuur em kunst hobbies">Cultuur em kunst hobbies</option>
+                            <option value="Beeldende kunst">Beeldende kunst</option>
+                            <option value="(kunst)geschiedenis">(kunst)geschiedenis</option>
+                            <option value="Geografie">Geografie</option>
+                            <option value="Sterrenkunde">Sterrenkunde</option>
+                            <option value="Godsdienst(en)">Godsdienst(en)</option>
+                            <option value="Volkenkunde">Volkenkunde</option>
+                            <option value="Vreemde talen">Vreemde talen</option>
+                            <option value="Filosofie">Filosofie</option>
+                            <option value="Religie">Religie</option>
+                            <option value="Astrologie">Astrologie</option>
+                            <option value="Psychologie">Psychologie</option>
+                            <option value="Zelfontplooiing">Zelfontplooiing</option>
+                            <option value="Architectuur">Architectuur</option>
+                            <option value="Toneel">Toneel</option>
+                            <option value="Cabaret">Cabaret</option>
+                            <option value="(electro)techniek">(electro)techniek</option>
+                            <option value="Biotechnologie">Biotechnologie</option>
+                            <option value="Lucht-/ruimtevaart">Lucht-/ruimtevaart</option>
+                            <option value="Film & fotografie">Film & fotografie</option>
+                            <option value="Stamboomonderzoek">Stamboomonderzoek</option>
+                            <option value="Literatuur hobbies">Literatuur hobbies</option>
+                            <option value="Verhalen schrijven">Verhalen schrijven</option>
+                            <option value="Brieven schrijven">Brieven schrijven</option>
+                            <option value="Gedichten schrijven">Gedichten schrijven</option>
+                            <option value="Vrijwilligerswerk">Vrijwilligerswerk</option>
+                            <option value="Wandelen">Wandelen</option>
+                            <option value="Fietsen">Fietsen</option>
+                            <option value="Auto-/motorrijden">Auto-/motorrijden</option>
+                            <option value="Tuinieren">Tuinieren</option>
+                            <option value="Bloemen kweken">Bloemen kweken</option>
+                            <option value="Planten verzorgen">Planten verzorgen</option>
+                            <option value="(huis)dieren">(huis)dieren</option>
+                            <option value="Duivenmelken">Duivenmelken</option>
+                            <option value="Vogels observeren">Vogels observeren</option>
+                            <option value="Volière houden">Volière houden</option>
+                            <option value="Honden fokken">Honden fokken</option>
+                            <option value="Paard(en) verzorgen">Paard(en) verzorgen</option>
+                            <option value="Aquarium">Aquarium</option>
+                            <option value="Tekenen">Tekenen</option>
+                            <option value="Schilderen">Schilderen</option>
+                            <option value="Beeldhouwen">Beeldhouwen</option>
+                            <option value="Boetseren">Boetseren</option>
+                            <option value="Houtbewerken">Houtbewerken</option>
+                            <option value="Modelbouw">Modelbouw</option>
+                            <option value="Handwerken">Handwerken</option>
+                            <option value="Knutselen">Knutselen</option>
+                            <option value="Frutselen">Frutselen</option>
+                            <option value="Klussen in huis">Klussen in huis</option>
+                            <option value="Kalligrafie">Kalligrafie</option>
+                            <option value="Film">Film</option>
+                            <option value="Bioscoop">Bioscoop</option>
+                            <option value="Discotheek">Discotheek</option>
+                            <option value="Naar vrienden">Naar vrienden</option>
+                            <option value="Restaurant">Restaurant</option>
+                            <option value="Theater">Theater</option>
+                            <option value="Kroeg">Kroeg</option>
+                            <option value="Aircraft Spotting">Aircraft Spotting</option>
+                            <option value="Airbrushing">Airbrushing</option>
+                            <option value="Airsofting">Airsofting</option>
+                            <option value="Acting">Acting</option>
+                        </select>
+                    </div>
+                    <input required id="username" type="text" placeholder="Gebruikersnaam" />
+                    <input required id="password" type="password" placeholder="Wachtwoord" />
+                    <input required id="password-repeat" type="password" placeholder="Wachtwoord herhalen" />
+                    <button type="submit" class="button-flat">Registreren</button>
+                </div>
+                <div class="modal-bottom">
+                    <label class="register" onclick="toggleClass('registration', 'login')">Heeft u al een account? Klik hier om in te loggen</label>
+                </div>
+            </form>
+        </div>
+
+        <div id="modal-forgotten" class="modal modal-forgotten-hide">
+            <form id="password-forgotten" class="modal-content full-width">
+                <div class="modal-top">
+                    <h1>Wachtwoord vergeten</h1>
+                    <span onclick="toggleClass('forgotten')" class="close" title="Close">&times;</span>
+                </div>
+                <div class="form-error">
+                    <p class="error-text"></p>
+                </div>
+                <div class="modal-middle">
+                    <input required id="email-forgotten" type="email" name="email-forgotten" placeholder="Email" />
+                    <button type="submit" class="button-flat">Verstuur</button>
+                </div>
+                <div class="modal-bottom">
+                    <label onclick="toggleClass('forgotten', 'registration')" class="register">Nog geen account? Klik hier om te registreren</label>
+                </div>
+            </form>
+        </div>
+
+        <div id="modal-email" class="modal modal-email-hide">
+            <form class="modal-content full-width">
+                <div class="modal-top">
+                    <h1>Verzonden</h1>
+                    <span onclick="toggleClass('email')" class="close" title="Close">&times;</span>
+                </div>
+                <div class="form-error">
+                    <p class="error-text"></p>
+                </div>
+                <div class="modal-middle">
+                    <p>
+                        Er is een email verzonden naar: <span id="verify-email"></span>.
+                        <br/>
+                        Controleer uw email om in te loggen met een tijdelijk wachtwoord.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </article>
+
+    <script src="Resources/Js/Routing/route.js"></script>
+    <script src="Resources/Js/Routing/router.js"></script>
+    <script src="Resources/Js/app.js"></script>
+</body>
+</html>

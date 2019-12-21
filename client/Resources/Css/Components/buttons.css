@@ -1,0 +1,23 @@
+button {
+	background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+button.button-3d {
+    box-shadow: inset -2px -5px 0px var(--color-primary-dark);
+    padding: 15px 100px;
+    font-size: 16px;
+}
+
+button#login-button-homepage {
+    padding: 15px 109px;
+    margin-top: 16px;
+}
+
+button.button-flat {
+    padding: 8px 20px;
+    font-size: 20px;
+}

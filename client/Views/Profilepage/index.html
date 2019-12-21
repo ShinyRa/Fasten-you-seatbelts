@@ -1,0 +1,362 @@
+<section class="page profile-page">
+    <article>
+        <div class="grid-container-profilepage">
+            <div class="ProfilePicture">
+                <img id="profile_picture" src="./Resources/Img/default_profile.jpg">
+                <input id="file-select" type="file" class="hidden" name="file" onchange="savePicture()">
+                <label class="downloadButton" for="file-select">Upload een foto!</label>
+            </div>
+            <div class="PersonalInfo">
+                <div class="section_titles">Persoonlijke informatie <p class="edit">Aanpassen</p></div>
+                <div class="left">
+                    <label class="profile-label">Voornaam</label>
+                    <input class="input-profile" type="text" name="voornaam" placeholder="Voornaam">
+                    <label class="profile-label">Tussenvoegsel</label>
+                    <input class="input-profile" type="text" name="tussenvoegsel" placeholder="Tussenvoegsel">
+                    <label class="profile-label">Achternaam</label>
+                    <input class="input-profile" type="text" name="achternaam" placeholder="Achternaam">
+                    <label class="profile-label">Geboortedatum</label>
+                    <input class="input-profile" type="date" name="geboortedatum">
+                </div>
+                <div class="right">
+                    <label class="profile-label">Adres</label>
+                    <input class="input-profile" type="text" name="adres" placeholder="Adres">
+                    <label class="profile-label">Postcode</label>
+                    <input class="input-profile" type="text" name="postcode" placeholder="Postcode">
+                    <label class="profile-label">Email</label>
+                    <input class="input-profile" type="text" name="email" placeholder="Email">
+                    <label class="profile-label">Telefoonnummer</label>
+                    <input class="input-profile" type="text" name="telefoonnummer" placeholder="Telefoonnummer">
+                </div>
+            </div>
+            <div class="change-password">
+                <div class="section_titles">Wachtwoord wijzigen <p class="edit">Wijzigen</p></div>
+                <input class="input-profile" type="password" name="wachtwoord_profile" placeholder="Wachtwoord"><br>
+                <input class="input-profile" type="password" name="wachtwoord_herhalen" placeholder="Wachtwoord herhalen"><br>
+            </div>
+            <div class="PersonalPreferences">
+                <div class="section_titles">Persoonlijke voorkeuren <p class="edit">Aanpassen</p></div>
+                <div class="userinput-container">
+                    <p class="title-input">Schrijf over jezelf</p>
+                    <textarea rows="5" cols="20" class="BIO-textarea input-profile" name="beschrijving" placeholder="Hobbies, werk, bezigheden etc"></textarea>
+                    <hr>
+                </div>
+                <select required id="interests-profile" name="interesses" class="select2" multiple="multiple">
+                    <option value="Voetbal">Voetbal</option>
+                    <option value="Handbal">Handbal</option>
+                    <option value="Volleybal">Volleybal</option>
+                    <option value="Gymnastiek">Gymnastiek</option>
+                    <option value="turnen">turnen</option>
+                    <option value="Hardlopen">Hardlopen</option>
+                    <option value="Atletiek">Atletiek</option>
+                    <option value="Zwemmen">Zwemmen</option>
+                    <option value="waterpolo">waterpolo</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Hengelsport">Hengelsport</option>
+                    <option value="Hockey">Hockey</option>
+                    <option value="Roeien">Roeien</option>
+                    <option value="Zeilen">Zeilen</option>
+                    <option value="Watersport">Watersport</option>
+                    <option value="(midget-)golf">(midget-)golf</option>
+                    <option value="Judo">Judo</option>
+                    <option value="Wandelsport">Wandelsport</option>
+                    <option value="(kruis-)boogschieten">(kruis-)boogschieten</option>
+                    <option value="Biljarten">Biljarten</option>
+                    <option value="darten">darten</option>
+                    <option value="Tafeltennis">Tafeltennis</option>
+                    <option value="Dammen">Dammen</option>
+                    <option value="schaken">schaken</option>
+                    <option value="Bridgen">Bridgen</option>
+                    <option value="kaarten">kaarten</option>
+                    <option value="Andere denksport">Andere denksport</option>
+                    <option value="Sjoelbakken">Sjoelbakken</option>
+                    <option value="Honkbal">Honkbal</option>
+                    <option value="softbal">softbal</option>
+                    <option value="Basketbal">Basketbal</option>
+                    <option value="korfbal">korfbal</option>
+                    <option value="Kegelen">Kegelen</option>
+                    <option value="bowling">bowling</option>
+                    <option value="Rugby">Rugby</option>
+                    <option value="Paardrijden">Paardrijden</option>
+                    <option value="Motorrijden">Motorrijden</option>
+                    <option value="(kunst-)schaatsen">(kunst-)schaatsen</option>
+                    <option value="Ijshockey">Ijshockey</option>
+                    <option value="Skeeleren">Skeeleren</option>
+                    <option value="Skaten">Skaten</option>
+                    <option value="Jeu de boules">Jeu de boules</option>
+                    <option value="Petanque">Petanque</option>
+                    <option value="Joggen">Joggen</option>
+                    <option value="Steppen">Steppen</option>
+                    <option value="Fitness">Fitness</option>
+                    <option value="Tae-bo">Tae-bo</option>
+                    <option value="Zen">Zen</option>
+                    <option value="Yoga en mindfulness hobbies">Yoga en mindfulness hobbies</option>
+                    <option value="Mediteren">Mediteren</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Tai-chi">Tai-chi</option>
+                    <option value="Bio-energetica">Bio-energetica</option>
+                    <option value="Sportief en bewegen hobbies">Sportief en bewegen hobbies</option>
+                    <option value="Muziek in het algemeen">Muziek in het algemeen</option>
+                    <option value="Klassieke muziek">Klassieke muziek</option>
+                    <option value="Lichte muziek">Lichte muziek</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Rock">Rock</option>
+                    <option value="R&B">R&B</option>
+                    <option value="Rap">Rap</option>
+                    <option value="Opera">Opera</option>
+                    <option value="Operette">Operette</option>
+                    <option value="Kerkmuziek">Kerkmuziek</option>
+                    <option value="Jazz">Jazz</option>
+                    <option value="Zingen individueel">Zingen individueel</option>
+                    <option value="Koorzang">Koorzang</option>
+                    <option value="Fanfare">Fanfare</option>
+                    <option value="Piano">Piano</option>
+                    <option value="Orgel">Orgel</option>
+                    <option value="Synthesizer">Synthesizer</option>
+                    <option value="Xylofoon">Xylofoon</option>
+                    <option value="Viool">Viool</option>
+                    <option value="Cello">Cello</option>
+                    <option value="Bas">Bas</option>
+                    <option value="Gitaar">Gitaar</option>
+                    <option value="Trompet">Trompet</option>
+                    <option value="Trombone">Trombone</option>
+                    <option value="Saxofoon">Saxofoon</option>
+                    <option value="(blok)fluit">(blok)fluit</option>
+                    <option value="Dwarsflui">Dwarsfluit</option>
+                    <option value="Mondharmonica">Mondharmonica</option>
+                    <option value="Accordeon">Accordeon</option>
+                    <option value="Percussie">Percussie</option>
+                    <option value="Didgeridoo">Didgeridoo</option>
+                    <option value="Djembee">Djembee</option>
+                    <option value="Dans hobbies">Dans hobbies</option>
+                    <option value="Klassiek ballet">Klassiek ballet</option>
+                    <option value="Jazz-ballet">Jazz-ballet</option>
+                    <option value="Volksdansen">Volksdansen</option>
+                    <option value="Stijldansen">Stijldansen</option>
+                    <option value="Street-dance">Street-dance</option>
+                    <option value="Break-dance">Break-dance</option>
+                    <option value="Salsa">Salsa</option>
+                    <option value="Literatuur en lezen hobbies">Literatuur en lezen hobbies</option>
+                    <option value="Lezen algemeen">Lezen algemeen</option>
+                    <option value="Romans">Romans</option>
+                    <option value="Reisverhalen">Reisverhalen</option>
+                    <option value="Reizen">Reizen</option>
+                    <option value="Detectives">Detectives</option>
+                    <option value="Science fiction">Science fiction</option>
+                    <option value="Poëzie">Poëzie</option>
+                    <option value="Kranten">Kranten</option>
+                    <option value="Tijdschriften">Tijdschriften</option>
+                    <option value="Radio luisteren">Radio luisteren</option>
+                    <option value="Televisie kijken">Televisie kijken</option>
+                    <option value="Film opnemen">Film opnemen</option>
+                    <option value="Computer spelletjes">Computer spelletjes</option>
+                    <option value="Internet surfen">Internet surfen</option>
+                    <option value="Chatten">Chatten</option>
+                    <option value="E-mailen">E-mailen</option>
+                    <option value="Foto-scans bewerken">Foto-scans bewerken</option>
+                    <option value="Software ontwikkelen">Software ontwikkelen</option>
+                    <option value="Cultuur em kunst hobbies">Cultuur em kunst hobbies</option>
+                    <option value="Beeldende kunst">Beeldende kunst</option>
+                    <option value="(kunst)geschiedenis">(kunst)geschiedenis</option>
+                    <option value="Geografie">Geografie</option>
+                    <option value="Sterrenkunde">Sterrenkunde</option>
+                    <option value="Godsdienst(en)">Godsdienst(en)</option>
+                    <option value="Volkenkunde">Volkenkunde</option>
+                    <option value="Vreemde talen">Vreemde talen</option>
+                    <option value="Filosofie">Filosofie</option>
+                    <option value="Religie">Religie</option>
+                    <option value="Astrologie">Astrologie</option>
+                    <option value="Psychologie">Psychologie</option>
+                    <option value="Zelfontplooiing">Zelfontplooiing</option>
+                    <option value="Architectuur">Architectuur</option>
+                    <option value="Toneel">Toneel</option>
+                    <option value="Cabaret">Cabaret</option>
+                    <option value="(electro)techniek">(electro)techniek</option>
+                    <option value="Biotechnologie">Biotechnologie</option>
+                    <option value="Lucht-/ruimtevaart">Lucht-/ruimtevaart</option>
+                    <option value="Film & fotografie">Film & fotografie</option>
+                    <option value="Stamboomonderzoek">Stamboomonderzoek</option>
+                    <option value="Literatuur hobbies">Literatuur hobbies</option>
+                    <option value="Verhalen schrijven">Verhalen schrijven</option>
+                    <option value="Brieven schrijven">Brieven schrijven</option>
+                    <option value="Gedichten schrijven">Gedichten schrijven</option>
+                    <option value="Vrijwilligerswerk">Vrijwilligerswerk</option>
+                    <option value="Wandelen">Wandelen</option>
+                    <option value="Fietsen">Fietsen</option>
+                    <option value="Auto-/motorrijden">Auto-/motorrijden</option>
+                    <option value="Tuinieren">Tuinieren</option>
+                    <option value="Bloemen kweken">Bloemen kweken</option>
+                    <option value="Planten verzorgen">Planten verzorgen</option>
+                    <option value="(huis)dieren">(huis)dieren</option>
+                    <option value="Duivenmelken">Duivenmelken</option>
+                    <option value="Vogels observeren">Vogels observeren</option>
+                    <option value="Volière houden">Volière houden</option>
+                    <option value="Honden fokken">Honden fokken</option>
+                    <option value="Paard(en) verzorgen">Paard(en) verzorgen</option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Tekenen">Tekenen</option>
+                    <option value="Schilderen">Schilderen</option>
+                    <option value="Beeldhouwen">Beeldhouwen</option>
+                    <option value="Boetseren">Boetseren</option>
+                    <option value="Houtbewerken">Houtbewerken</option>
+                    <option value="Modelbouw">Modelbouw</option>
+                    <option value="Handwerken">Handwerken</option>
+                    <option value="Knutselen">Knutselen</option>
+                    <option value="Frutselen">Frutselen</option>
+                    <option value="Klussen in huis">Klussen in huis</option>
+                    <option value="Kalligrafie">Kalligrafie</option>
+                    <option value="Film">Film</option>
+                    <option value="Bioscoop">Bioscoop</option>
+                    <option value="Discotheek">Discotheek</option>
+                    <option value="Naar vrienden">Naar vrienden</option>
+                    <option value="Restaurant">Restaurant</option>
+                    <option value="Theater">Theater</option>
+                    <option value="Kroeg">Kroeg</option>
+                    <option value="Aircraft Spotting">Aircraft Spotting</option>
+                    <option value="Airbrushing">Airbrushing</option>
+                    <option value="Airsofting">Airsofting</option>
+                    <option value="Acting">Acting</option>
+                </select>
+            </div>
+            <div class="TripPreferences">
+                <div class="section_titles">Reis instellingen <p class="edit">Toevoegen</p></div>
+                <div class="userinput-container">
+                    <p class="title-input">Wanneer begint uw reis?</p>
+                    <input class="input-user" type="date" name="begin_reis">
+                </div>
+                <div class="userinput-container">
+                    <p class="title-input">Wanneer eindigd uw reis?</p>
+                    <input class="input-user" type="date" name="eind_reis">
+                </div>
+                <div class="userinput-container">
+                    <p class="title-input">Waar gaat u naar toe?</p>
+                    <select required id="locatie" name="locatie" class="select2">
+                        <option></option>
+                        <option value="Andalusië, Spanje">Andalusië, Spanje</option>
+                        <option value="Parijs, Frankrijk">Parijs, Frankrijk</option>
+                        <option value="Sognefjord-regio, Noorwegen">Sognefjord-regio, Noorwegen</option>
+                        <option value="IJsland">IJsland</option>
+                        <option value="New York, Verenigde Staten">New York, Verenigde Staten</option>
+                        <option value="Istanbul, Turkije">Istanbul, Turkije</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Rome, Italië">Rome, Italië</option>
+                        <option value="Myanmar/Birma">Myanmar/Birma</option>
+                        <option value="Wilde Westen, Verenigde Staten">Wilde Westen, Verenigde Staten</option>
+                        <option value="Sint-Petersburg, Rusland">Sint-Petersburg, Rusland</option>
+                        <option value="Madagaskar">Madagaskar</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Australië">Australië</option>
+                        <option value="Amsterdam, Nederland">Amsterdam, Nederland</option>
+                        <option value="de Wadden, Nederland">de Wadden, Nederland</option>
+                        <option value="Zuid-Afrika">Zuid-Afrika</option>
+                        <option value="Bali, Indonesië">Bali, Indonesië</option>
+                        <option value="Spanje, binnenland">Spanje, binnenland</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Cappadocië, Turkije">Cappadocië, Turkije</option>
+                        <option value="Peloponnessos, Griekenland">Peloponnessos, Griekenland</option>
+                        <option value="Venetië, Italië">Venetië, Italië</option>
+                        <option value="Corsica, Frankrijk">Corsica, Frankrijk</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Lissabon, Portugal">Lissabon, Portugal</option>
+                        <option value="Amalfikust, Italië">Amalfikust, Italië</option>
+                        <option value="Marrakech, Marokko">Marrakech, Marokko</option>
+                        <option value="Dolomieten, Italië">Dolomieten, Italië</option>
+                        <option value="Shanghai, China">Shanghai, China</option>
+                        <option value="Ko Chang, Thailand">Ko Chang, Thailand</option>
+                        <option value="Praag, Tsjechië">Praag, Tsjechië</option>
+                        <option value="Seychellen">Seychellen</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Buenos Aires, Argentinië">Buenos Aires, Argentinië</option>
+                        <option value="Gouden Driehoek, India">Gouden Driehoek, India</option>
+                        <option value="Azoren, Portugal">Azoren, Portugal</option>
+                        <option value="Wallis, Zwitserland">Wallis, Zwitserland</option>
+                        <option value="Toscane, Italië">Toscane, Italië</option>
+                        <option value="Ierland">Ierland</option>
+                        <option value="Antarctica">Antarctica</option>
+                        <option value="Angkor Wat, Cambodja">Angkor Wat, Cambodja</option>
+                        <option value="Provence, Frankrijk">Provence, Frankrijk</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Namibië">Namibië</option>
+                        <option value="Bretagne, Frankrijk">Bretagne, Frankrijk</option>
+                        <option value="Moskou, Rusland">Moskou, Rusland</option>
+                        <option value="Rio de Janeiro, Brazilië">Rio de Janeiro, Brazilië</option>
+                        <option value="Loire, Frankrijk">Loire, Frankrijk</option>
+                        <option value="Gent, België">Gent, België</option>
+                        <option value="Lapland, Finland">Lapland, Finland</option>
+                        <option value="Madrid, Spanje">Madrid, Spanje</option>
+                        <option value="Berlijn, Duitsland">Berlijn, Duitsland</option>
+                        <option value="Dubrovnik, Kroatië">Dubrovnik, Kroatië</option>
+                        <option value="Mont Blanc, Frankrijk">Mont Blanc, Frankrijk</option>
+                        <option value="Bakenland, Spanje">Bakenland, Spanje</option>
+                        <option value="Boedapest, Hongarije">Boedapest, Hongarije</option>
+                        <option value="Krakau, Polen">Krakau, Polen</option>
+                        <option value="Salar de Uyuni, Bolivia">Salar de Uyuni, Bolivia</option>
+                        <option value="Kreta, Griekenland">Kreta, Griekenland</option>
+                        <option value="Cevennen, Frankrijk">Cevennen, Frankrijk</option>
+                        <option value="Luang Prabang, Laos">Luang Prabang, Laos</option>
+                        <option value="Devon, Engeland">Devon, Engeland</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Stockholm, Zweden">Stockholm, Zweden</option>
+                        <option value="Dubai, Verenigde Arabische Emiraten">Dubai, Verenigde Arabische Emiraten</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Hongkong, China">Hongkong, China</option>
+                        <option value="Voerstreek, België">Voerstreek, België</option>
+                        <option value="El Hierro, Canarische Eilanden">El Hierro, Canarische Eilanden</option>
+                        <option value="Borneo, Maleisië">Borneo, Maleisië</option>
+                        <option value="Nova Scotia, Canada">Nova Scotia, Canada</option>
+                        <option value="Chigago, Verenigde Staten">Chigago, Verenigde Staten</option>
+                        <option value="Zürich, Zwitserland">Zürich, Zwitserland</option>
+                        <option value="Edinburgh, Schotland">Edinburgh, Schotland</option>
+                        <option value="Zuid-Bohemen, Tsjechië">Zuid-Bohemen, Tsjechië</option>
+                        <option value="Luxor, Egypte">Luxor, Egypte</option>
+                        <option value="Saba, Nederland">Saba, Nederland</option>
+                        <option value="Oost-Vlaanderen, België">Oost-Vlaanderen, België</option>
+                        <option value="Vaud, Zwitserland">Vaud, Zwitserland</option>
+                        <option value="Kaapverdië">Kaapverdië</option>
+                        <option value="Civita Di Bagnoregio, Italië">Civita Di Bagnoregio, Italië</option>
+                        <option value="München, Duitsland">München, Duitsland</option>
+                        <option value="Tobago">Tobago</option>
+                        <option value="Hebriden, Schotland">Hebriden, Schotland</option>
+                        <option value="Yucathan, Mexico">Yucathan, Mexico</option>
+                        <option value="Wenen, Oostenrijk">Wenen, Oostenrijk</option>
+                        <option value="Oslo, Noorwegen">Oslo, Noorwegen</option>
+                        <option value="Voralberg, Oostenrijk">Voralberg, Oostenrijk</option>
+                        <option value="Belfast, Noord-Ierland">Belfast, Noord-Ierland</option>
+                        <option value="Montréal, Canada">Montréal, Canada</option>
+                        <option value="Tallinn, Estland">Tallinn, Estland</option>
+                        <option value="Zanzibar">Zanzibar</option>
+                        <option value="Skagen, Denemarken">Skagen, Denemarken</option>
+                        <option value="Georgië">Georgië</option>
+                        <option value="Jordanië">Jordanië</option>
+                        <option value="Londen">Londen</option>
+                        <option value="Rimini, Italië">Rimini, Italië</option>
+                        <option value="Nieuw-Zeeland">Nieuw-Zeeland</option>
+                        <option value="Albanië">Albanië</option>
+                    </select>
+                </div>
+            </div>
+            <div class="PlannedTrips">
+                <div class="section_titles">Geplande reizen</div>
+                <p id="no-trips" style="display: none">U heeft momenteel geen reizen ingepland!</p>
+                <div class="reizen">
+                    <table class="reis-table">
+                        <thead>
+                            <tr>
+                                <th>Begin reis</th>
+                                <th>Eind reis</th>
+                                <th>Bestemming</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="delete-account">
+                <p>Account verwijderen</p>
+            </div>
+        </div>
+    </article>
+</section>

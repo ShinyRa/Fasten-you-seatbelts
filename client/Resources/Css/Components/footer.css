@@ -1,0 +1,39 @@
+footer {
+	height: 100px;
+    width: 100%;
+    background-color: var(--color-primary);
+}
+
+footer .footer-content {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer .footer-content ul {
+    list-style-type: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .footer-content ul li {
+	margin: auto;
+    color: white;
+    display: inline-block;
+
+}
+
+/* Move to main.css */
+footer .footer-content li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "uni_sansbold", "Open Sans Semibold", "Helvetica", "sans-serif";
+}

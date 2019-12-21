@@ -1,0 +1,41 @@
+header {
+	background-color: #FFF;
+}
+
+header .header-content {
+    width: 60%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+header .header-content .header-buttons {
+    width: 150px;
+	float: right;
+}
+
+/* Can move to main.css */
+header .header-content .header-buttons a, header .header-content .header-buttons label {
+	color: #000;
+    cursor: pointer;
+}
+
+header .header-content .header-buttons label:hover {
+    text-decoration: underline;
+}
+
+header .header-content .header-buttons .logout-button {
+    display: none;
+}
+
+header .header-content .header-buttons .login-button,
+header .header-content .header-buttons .logout-button {
+    float: right;
+}
+
+@media only screen and (max-width: 1100px) {
+    header .header-content {
+        width: 100%;
+        text-align: center;
+    }
+}

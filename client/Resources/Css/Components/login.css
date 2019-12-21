@@ -1,0 +1,177 @@
+.modal-login-hide,
+.modal-registration-hide,
+.modal-forgotten-hide,
+.modal-email-hide,
+.modal-success-hide {
+    display: none;
+}
+
+.error {
+    box-shadow: 0px 0px 4px 0px rgb(204, 0, 0);
+}
+
+.modal {
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 2% auto 15% auto;
+    border: 1px solid #888;
+    width: 30%;
+    animation: pop-in 0.3s
+}
+
+.modal-middle input[type=text], .modal-middle input[type=email], .modal-middle input[type=date], .modal-middle input[type=password] {
+    width: 90%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 2% 5% 0 5%;
+}
+
+.modal-middle input[type=checkbox] {
+    vertical-align: middle;
+}
+
+.modal-middle .remember {
+    float: left;
+    margin: 2% 0 2% 5%;
+}
+
+.modal-middle .password-forget {
+    float: right;
+    width: 50%;
+    margin: 2% 5% 2% 0;
+}
+
+.modal-middle .password-forget label {
+    float: right;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+    margin: 3% 5% 0 0;
+}
+
+.modal-top {
+    height: 40px;
+}
+
+.modal-top h1, .modal-top span {
+    float: left;
+}
+
+.modal-top h1 {
+    width: 85%;
+    margin: 4% 0 0 5%;
+}
+
+.form-error {
+    display: none;
+    margin: 4% 5% 0 5%;
+    background-color: rgba(255, 0, 0, 0.7);
+    height: 65px;
+    border-radius: 6px;
+}
+
+.form-error .error-text {
+    padding: 20px;
+    color: white;
+}
+
+.modal-top .close {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.modal-top .close:hover, .modal-top .close:focus {
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.modal-middle button {
+    width: 90%;
+    margin: 4% 5% 0 5%;
+}
+
+.modal-middle button:hover {
+    opacity: 0.8;
+}
+
+#modal-email .modal-middle, #modal-success .modal-middle {
+    padding: 30px;
+}
+
+.modal-bottom {
+    margin: 2% 5%;
+    overflow: auto;
+}
+
+.modal-bottom .register {
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+}
+
+#verify-email {
+    font-weight: bold;
+}
+
+#link-to-login {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.select2-container {
+    width: 100% !important;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 16px
+}
+
+.select2-container-registration {
+    margin: 2% 5% 0 5%;
+}
+
+@media only screen and (max-width: 1100px) {
+    .full-width {
+        width: 100%;
+    }
+
+    .modal-content {
+        margin-top: 20%;
+    }
+}
+
+@-webkit-keyframes pop-in {
+    0% {
+        opacity: 0; -webkit-transform: scale(0.8);
+    }
+    100% {
+        opacity: 1; -webkit-transform: scale(1);
+    }
+}
+
+@-moz-keyframes pop-in {
+    0% {
+        opacity: 0; -moz-transform: scale(0.8);
+    }
+    100% {
+        opacity: 1; -moz-transform: scale(1);
+    }
+}
+
+@keyframes pop-in {
+    0% {
+        opacity: 0; transform: scale(0.8);
+    }
+    100% {
+        opacity: 1; transform: scale(1);
+    }
+}

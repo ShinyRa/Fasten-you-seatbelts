@@ -1,0 +1,382 @@
+.grid-container-profilepage {
+    display: grid;
+    grid-template-columns: 30% 5% 20% 42%;
+    grid-template-rows: 30% 12% 15% 15%;
+    grid-gap: 1%;
+    margin-bottom: 2rem;
+    grid-template-areas: 
+        "ProfilePicture PersonalInfo PersonalInfo PersonalInfo"
+        "ChangePassword ChangePassword ChangePassword ChangePassword"
+        "PersonalPreferences PersonalPreferences PersonalPreferences TripPreferences"
+        "PersonalPreferences PersonalPreferences PersonalPreferences TripPreferences"
+        "PersonalPreferences PersonalPreferences PersonalPreferences TripPreferences"
+        "PlannedTrips PlannedTrips PlannedTrips PlannedTrips"
+        "delete delete delete delete";
+}
+
+.grid-container-profilepage-view {
+    display: grid;
+    grid-template-columns: 24% 38% 38%;
+    grid-template-rows: 70% 30%;
+    grid-gap: 1%;
+    grid-template-areas:
+            "ProfilePicture PersonalInfo PersonalInfo"
+            "PlannedTrips PlannedTrips PlannedTrips";
+}
+
+.ProfilePictureView {
+    text-align: center;
+    padding: 10px;
+    grid-area: ProfilePicture;
+}
+
+#profile_picture_view {
+    width: 250px;
+    margin-top: 5%;
+    margin-left: 5%;
+    border-radius: 50%;
+}
+
+.grid-container-profilepage-view .BIO-textarea {
+    width: 80%;
+}
+
+.grid-container-profilepage-view .input-profile {
+    outline: none;
+}
+
+.match-button {
+    border-left: 0;
+}
+
+.edit{
+    display: none;
+    margin-top: 5px;
+    margin-right: 5px;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgb(216, 30, 5);
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: 0.3s;
+    width: 81px;
+    text-align: center;
+    font-size: 15px;
+    float: right;
+}
+
+div:hover > div > .edit {
+    display: block;
+}
+
+#no-trips{
+    font-size: 21px;
+}
+
+.TripPreferences > .edit{
+    margin-bottom: 15px;
+    bottom: unset;
+}
+.edit:hover{
+    padding-left: 7px;
+    padding-right: 7px;
+    background-color: rgb(216, 30, 5);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.ProfilePicture {
+    padding: 1rem;
+    grid-area: ProfilePicture;
+}
+
+.downloadButton{
+    background-color: rgb(216, 30, 5);
+    padding: .4rem;
+    color:white;
+    text-align: center;
+    display: block;
+    border-radius: .2rem;
+}
+
+#profile_picture{
+    width: 90%;
+    height: 90%;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.left{
+    width: 50%;
+    float: left;
+}
+.right{
+    width: 50%;
+    float: right;
+}
+.input-profile::placeholder{
+    font-size: 15px;
+    color: #5f5f5f;
+    font-style: italic;
+}
+.input-profile{
+    color: var(--color-text);
+    font-size: 19px;
+    padding-left: 10px;
+    border: none;
+    margin-bottom: 10px;
+    border-left: 2px solid var(--color-primary);
+}
+.section_titles{
+    text-align: left;
+    overflow: hidden;
+    margin-top: 10px;
+    font-size: 25px;
+    color: var(--color-primary);
+    margin-bottom: 2%;
+    border-bottom: 2px solid white;
+}
+
+.PersonalInfo {
+    padding: 10px;
+    grid-area: PersonalInfo;
+    padding-left: 5%;
+    padding-right: 5%;
+    min-height: 300px;
+}
+
+.PersonalPreferences {
+    padding: 10px;
+    grid-area: PersonalPreferences;
+    border: rgb(216, 30, 5);
+    position: relative;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.BIO-textarea{
+    padding-left: 0px;
+    padding: 4%;
+    font-size: 15px;
+    outline: none;
+}
+
+.TripPreferences {
+    padding: 10px;
+    grid-area: TripPreferences;
+    border: rgb(216, 30, 5);
+    position: relative;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+
+.PlannedTrips {
+    padding: 10px;
+    grid-area: PlannedTrips;
+    border: rgb(216, 30, 5);
+    position: relative;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 5%;
+}
+
+.delete-account {
+    grid-area: delete;
+    border: rgb(216, 30, 5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    height: 5rem;
+}
+
+.delete-account p{
+    padding: 0px 18px;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    top: -2rem;
+    position: relative;
+}
+
+.delete-account p:hover {
+    cursor: pointer;
+    background-color: rgb(100, 0, 0);
+}
+
+.change-password {
+    grid-area: ChangePassword;
+    padding: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    border: rgb(216, 30, 5);
+    align-items: center;
+}
+
+.change-password p:hover {
+    cursor: pointer;
+    background-color: rgb(100, 0, 0);
+}
+
+.change-password .input-profile {
+    width: 25%;
+}
+
+.userinput-container{
+    margin-bottom: 5%;
+}
+
+.title-input{
+    color: black;
+    border-bottom: 1px solid white;
+    width: 82%;
+    padding-top: 3%;
+}
+
+.input-user{
+    border: none;
+    height: 5vh;
+    padding-left: 4%;
+    padding-right: 4%;
+    border-left: 2px solid var(--color-primary);
+}
+
+.interests {
+    grid-area: intrests;
+    color: var(--color-primary);
+}
+
+.profile-label {
+    font-weight: bold;
+}
+
+.input-profile {
+    width: 100%;
+}
+
+table.reis-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+table.reis-table td, table.reis-table th {
+    padding: 3px 2px;
+}
+
+table.reis-table tr:nth-child(even) {
+    background: rgba(216, 30, 5, 0.2);
+}
+
+table.reis-table thead {
+    background: #D81E05;
+}
+
+table.reis-table thead th {
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+    padding-left: 10px;
+}
+
+table.reis-table tbody td {
+    padding-left: 10px;
+}
+
+table.reis-table thead th:first-child {
+    border-left: none;
+}
+
+.verwijder-reis {
+    width: 15px;
+    height: 26px;
+    padding: 0px 15px;
+    border-radius: 4px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 26px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.verwijder-reis:hover {
+    cursor: pointer;
+    color: var(--color-primary);
+    background-color: rgb(100, 0, 0);
+}
+
+.select2-container--default 
+.select2-selection--multiple 
+.select2-selection__choice {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+}
+.select2-container--default 
+.select2-selection--multiple 
+.select2-selection__choice__remove {
+    color: white;
+}
+
+select.select2 {
+    width: 500px;
+    height: 150px;
+}
+
+.PersonalPreferences .select2-selection{
+    height: auto;
+}
+
+@media only screen and (max-width: 1630px) {
+    .grid-container-profilepage-view {
+        display: flex;
+        flex-direction: column;
+        height: unset;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .grid-container-profilepage {
+        display: flex;
+        flex-direction: column;
+        height: unset;
+    }
+
+    .grid-container-profilepage-view .left, .grid-container-profilepage-view .right {
+        width: 100%;
+    }
+
+    #no-trips{
+        width: 60%;
+    }
+
+    #profile_picture{
+        margin-left: 20%;
+        width: 60%;
+    }
+
+    #Profile_picture, .PersonalInfo, .PersonalPreferences, .TripPreferences, .PlannedTrips, .Save-settings{
+        margin-top: 4%;
+    }
+    .Save-settings:hover{
+        margin: 0;
+        margin-top: 4%;
+        transition: 0.3s;
+        background-color: rgb(100, 0, 0);
+    }
+    .userinput-container{
+        width: 100%;
+    }
+
+    .delete-account {
+        margin-bottom: 75px;
+    }
+}

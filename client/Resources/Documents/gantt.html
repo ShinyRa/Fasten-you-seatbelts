@@ -1,0 +1,179 @@
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <style>
+  * {
+    font-family: "Roboto";
+  }
+
+  #chart-div {
+    overflow-x: scroll;
+  }
+
+
+  </style>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function minutesToMilliseconds(minutes) {
+      return minutes * 60 * 1000;
+    }
+
+    function hoursToMilliseconds(hours)  {
+      return hours * 60 * 60 * 1000;
+    } 
+
+    function daysToMilliseconds(days) {
+      return days * 24 * 60 * 60 * 1000;
+    }
+
+    function getPRandBData() 
+    {
+      document.getElementById('header').innerHTML = "Opdracht planning risicoanalyse en begroting";
+
+      return [
+          ['teamvergadering',  'Teamvergadering',             'talk', null, null, hoursToMilliseconds(1), 0, null],
+          ['werkzaamheden',    'Werkzaamheden invetariseren', 'talk', null, null, hoursToMilliseconds(1), 0, null],
+          ['afhankelijkheden', 'Bepaal de Afhankelijkheden',  'talk', null, null, hoursToMilliseconds(1), 0, 'werkzaamheden'],
+          ['planning',         'Planning opzetten',           'work', null, null, hoursToMilliseconds(2), 0, 'afhankelijkheden'],
+          ['uren',             'Bepaal hoeveel uren elke activiteit gaat kosten', 'talk', null, null, hoursToMilliseconds(2), 0, 'afhankelijkheden'],
+          ['risico',           'Risicoanalyse',               'work', null, null, hoursToMilliseconds(2), 0, 'planning'],
+          ['begroting',        'Begroting',                   'work', null, null, hoursToMilliseconds(3), 0, 'planning'],
+          ['gantt',            'Gantt chart maken',           'work', null, null, hoursToMilliseconds(3), 0, 'uren']
+        ];
+    }
+
+    function getConceptData() 
+    {
+      document.getElementById('header').innerHTML = "Concept oplevering";
+
+      return [
+          ['markdown',                 'Markdown bijwerken',              'tijs', null, null, hoursToMilliseconds(2.5), 0, null],
+          ['styling chat',             'Chat styling bijwerken',          'tijs', null, null, hoursToMilliseconds(1),   0, null],
+          ['styling matching',         'Matching page styling bijwerken', 'jerry', null, null, hoursToMilliseconds(2.5), 0, null],
+          ['database inrichten',       'Database inrichten',              'rob', null, null, hoursToMilliseconds(16),  0, null],
+          ['database aanmaken',        'Database aanmaken',               'tijs', null, null, hoursToMilliseconds(4),   0, 'database inrichten'],
+          ['express',                  'Express voor endpoints',          'jerry', null, null, hoursToMilliseconds(4),   0, 'database aanmaken'],
+          ['login',                    'Login systeem',                   'romano', null, null, hoursToMilliseconds(4),   0, 'express'],
+          ['login functionaliteit',    'Login functionaliteit',           'romano', null, null, hoursToMilliseconds(1.5), 0, 'login'],
+          ['registratie',              'Registratie functionaliteit',     'romano', null, null, hoursToMilliseconds(2.5), 0, 'express'],
+          ['matching',                 'Matching Systeem',                'jerry', null, null, hoursToMilliseconds(24),  0, 'express'],
+          ['matching functionaliteit', 'Matching pagina functionaliteit', 'jerry', null, null, hoursToMilliseconds(4),   0, 'matching'],
+          ['crud gebruikersgegevens',  'CRUD gebruikersgegevens',         'auke', null, null, hoursToMilliseconds(8),   0, 'express'],
+          ['profiel',                  'Profiel pagina',                  'auke', null, null, hoursToMilliseconds(16),  0, 'express'],
+          ['database connectie',       'Database connectie',              'tijs', null, null, hoursToMilliseconds(1),   0, 'database aanmaken'],
+          ['socket.io',                'Socket.io voor chat',             'auke', null, null, hoursToMilliseconds(8),   0, 'database connectie'],
+          ['chat',                     'Chat functionaliteit',            'tijs', null, null, hoursToMilliseconds(2.5), 0, 'socket.io'],
+        ];
+    }
+
+    function getEndData() 
+    {
+      document.getElementById('header').innerHTML = "Eind oplevering";
+
+      return [
+          ['notificaties',                     'Notificaties',               'work', null, null, hoursToMilliseconds(1.5), 0, null],
+          ['tests',                            'Tests maken',                'work', null, null, hoursToMilliseconds(4),   0, null],
+          ['intresses en locaties', 'Intresses en locatie van gebruiker',    'work', null, null, hoursToMilliseconds(4),   0, null],
+          ['responsiveness',                   'Responsiveness',             'work', null, null, hoursToMilliseconds(2.5), 0, null],
+          ['locatie',                          'Locatie uitlezen',           'work', null, null, hoursToMilliseconds(4),   0, null],
+          ['wachtwoord reset', 'Wachtwoord reset op gebruiker',              'work', null, null, hoursToMilliseconds(4),   0, null],
+          ['wachtwoord reset functionaliteit', 'Wachtwoord reset functionaliteit', 'work', null, null, hoursToMilliseconds(2.5), 0, 'wachtwoord reset'],
+          ['groepen',                          'Groepen tabel',              'work', null, null, hoursToMilliseconds(1.5), 0, null],
+          ['groepen functionaliteit',          'Groepen functionaliteit',    'work', null, null, hoursToMilliseconds(2.5), 0, 'groepen'],
+          ['profielfoto',                      'Gebruikers profielfoto',     'work', null, null, hoursToMilliseconds(1.5), 0, null],
+          ['profielfoto functionaliteit', 'Gebruikers profielfoto functionaliteit', 'work', null, null, hoursToMilliseconds(2.5), 0, 'profielfoto'],
+          ['admin',                            'Dashboard voor admins',      'work', null, null, hoursToMilliseconds(2.5), 0, null],
+          ['admin functionaliteit', 'Dashboard voor admins functionaliteit', 'work', null, null, hoursToMilliseconds(2.5), 0, null],
+        ];
+    }
+
+    function getGlobalData() 
+    {
+      document.getElementById('header').innerHTML = "Globale planning";
+
+      return [
+          ['opdracht p,r en b', 'Presentatie P, R en B', 'work', new Date(2018, 10, 11), new Date(2018, 10, 19), null, 0, null],
+          ['vergadering',    'Team vergadering',    'vergadering',      new Date(2018, 10, 20), null,                  daysToMilliseconds(0.5),   0, null],
+          ['fys-coaching1',  'Fys coaching',        'fys-coach',        new Date(2018, 10, 23), null,                  daysToMilliseconds(0.5),   0, null],
+          ['statusrapport1', 'Statusrapport',       'oplevering',       new Date(2018, 10, 20), null,                  daysToMilliseconds(1),     0, null],
+          ['belbin',         'Belbin verslag',      'oplevering',       new Date(2018, 10, 25), null,                  daysToMilliseconds(1),     0, null],
+          ['pbandr',         'P, R en B verslag',   'oplevering',       new Date(2018, 10, 25), null,                  daysToMilliseconds(1),     0, null],
+          ['statusrapport2', 'Statusrapport',       'oplevering',       new Date(2018, 10, 27), null,                  daysToMilliseconds(1),     0, null],
+          ['fys-coaching2',  'Fys coaching',        'fys-coach',        new Date(2018, 10, 30), null,                  daysToMilliseconds(0.5),   0, null],
+          ['vergadering2',   'Team vergadering',    'vergadering',      new Date(2018, 10, 27), null,                  daysToMilliseconds(0.5),   0, null],
+          ['procescheck',    'Procescheck concept', 'oplevering',       new Date(2018, 11, 3),  null,                  daysToMilliseconds(1),     0, null],
+          ['statusrapport3', 'Statusrapport',       'oplevering',       new Date(2018, 11, 4),  null,                  daysToMilliseconds(1),     0, null],
+          ['vergadering3',   'Team vergadering',    'vergadering',      new Date(2018, 11, 4),  null,                  daysToMilliseconds(0.5),   0, null],
+          ['audit3',         'Audit 3',             'opdrachtgever',    new Date(2018, 11, 7),  null,                  daysToMilliseconds(1),     0, null],
+          ['fys-coaching3',  'Fys coaching',        'fys-coach',        new Date(2018, 11, 7),  null,                  daysToMilliseconds(0.5),   0, null],
+          ['statusrapport4', 'Statusrapport',       'oplevering',       new Date(2018, 11, 11), null,                  daysToMilliseconds(1),     0, null],
+          ['vergadering4',   'Team vergadering',    'vergadering',      new Date(2018, 11, 11), null,                  daysToMilliseconds(0.5),   0, null],
+          ['fys-coaching4',  'Fys coaching',        'fys-coach',        new Date(2018, 11, 14), null,                  daysToMilliseconds(0.5),   0, null],
+          ['vergadering5',   'Team vergadering',    'vergadering',      new Date(2018, 11, 18), null,                  daysToMilliseconds(0.5),   0, null],
+          ['opleveren',      'Concept eindproduct', 'work',             new Date(2018, 10, 19), new Date(2018, 11, 7), null,                      0, null],
+          ['fys-coaching5',  'Fys coaching',        'fys-coach',        new Date(2018, 11, 21), null,                  daysToMilliseconds(0.5),   0, null],
+          ['vakantie',       'Kerst vakantie',      'free',             new Date(2018, 11, 24), new Date(2019, 0, 4),  null,                      0, null],
+          ['vergadering6',   'Team vergadering',    'vergadering',      new Date(2019, 0, 8),   null,                  daysToMilliseconds(0.5),   0, null],
+          ['audit4',         'Audit 4',             'opdrachtgever',    new Date(2019, 0, 11),  null,                  daysToMilliseconds(1),     0, null],
+          ['fys-coaching6',  'Fys coaching',        'fys-coach',        new Date(2019, 0, 11),  null,                  daysToMilliseconds(0.5),   0, null],
+          ['presentatie product', 'Product presentatie', 'vergadering', new Date(2019, 0, 15),  null,                  daysToMilliseconds(1),     0, null],
+          ['procescheck2',   'Procescheck',         'oplevering',       new Date(2019, 0, 16),  null,                  daysToMilliseconds(1),     0, null],
+          ['eindproduct', 'Eindproduct oplevering', 'work',             new Date(2018, 11, 7), new Date(2019, 0, 15),  null,                      0, null]
+        ];
+    }
+
+    function drawChart(data = null) {
+
+      var otherData = new google.visualization.DataTable();
+      otherData.addColumn('string', 'Task ID');
+      otherData.addColumn('string', 'Task Name');
+      otherData.addColumn('string', 'Resource');
+      otherData.addColumn('date', 'Start');
+      otherData.addColumn('date', 'End');
+      otherData.addColumn('number', 'Duration');
+      otherData.addColumn('number', 'Percent Complete');
+      otherData.addColumn('string', 'Dependencies');
+
+      otherData.addRows((data) ? data : getPRandBData());
+
+      var options = {
+        height: 1100,
+        gantt: {
+          defaultStartDateMillis: new Date('2015, 3, 28')
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(otherData, options);
+    }
+  </script>
+</head>
+<body>
+  <h1 style="text-align: center;" id="header">Opdracht planning risicoanalyse en begroting</h1>
+  <div id="chart_div"></div>
+  <div style="position: fixed; bottom: 0; right: 0;">
+    <ul style="list-style-type: none;">
+      <li>
+        <input type="radio" name="checklist" checked="true" onclick="drawChart(getPRandBData());">
+        <label>Opdracht planning risicoanalyse en begroting</label>
+      </li>
+      <li>
+        <input type="radio" name="checklist" onclick="drawChart(getConceptData());">
+        <label>Concept oplevering</label>
+      </li>
+      <li>
+        <input type="radio" name="checklist" onclick="drawChart(getEndData());">
+        <label>Eindoplevering</label>
+      </li>
+      <li>
+        <input type="radio" name="checklist" onclick="drawChart(getGlobalData());">
+        <label>Globale planning</label>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

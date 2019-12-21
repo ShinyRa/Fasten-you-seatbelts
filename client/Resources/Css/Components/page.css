@@ -1,0 +1,44 @@
+:root {
+	--page-box-shadow: 2px 0px 21px -7px rgba(0,0,0,0.8);
+}
+
+section.page {
+	width: 100%;
+}
+
+section.page article {
+	margin: 2rem auto 20px auto;
+	width: 60%;
+	min-height: 1000px;
+	padding: 20px;
+	background-color: #FFF;
+	-webkit-box-shadow: var(--page-box-shadow);
+	-moz-box-shadow: var(--page-box-shadow);
+	box-shadow: var(--page-box-shadow);
+}
+
+section.page article.contains-table {
+	background-color: var(--background-color);
+	box-shadow: none;
+	text-align: center;
+}
+
+@media only screen and (max-width: 1100px) {
+	section.page article {
+		margin: 1rem;
+		width: auto;
+		padding: 1rem;
+
+		-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+		-moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+		box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+	}
+
+	section.page article h2 {
+		padding-top: 20px;
+	}
+
+	section.page .contains-table{
+		margin: 0;
+	}
+}

@@ -1,0 +1,191 @@
+:root {
+    --color-nav-selected: #b81a04;
+    --nav-height: 50px;
+    --submenu-item-height: 2rem;
+    --number-of-menu-items: 4;
+}
+
+nav {
+    display: none;
+    background-color: var(--color-primary);
+    min-height: var(--nav-height);
+    border-bottom: 1px solid var(--color-primary-dark);
+}
+
+nav .nav-content {
+    width: 60%;
+    margin: auto;
+    letter-spacing: 1px;
+}
+
+nav .nav-content ul {
+    list-style-type: none;
+}
+
+nav .nav-content li {
+    width: calc(100% / var(--number-of-menu-items));
+    float: left;
+}
+
+nav .nav-content li,
+nav .nav-content li a {
+    line-height: var(--nav-height);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+nav .nav-content li {
+    min-height: var(--nav-height);
+    max-height: var(--nav-height);
+}
+
+nav .nav-content li:not([data-submenu]) {
+    overflow: hidden;
+}
+
+nav .nav-content ul li:hover {
+    background-color: var(--color-primary-dark);
+    cursor: pointer;
+    border-bottom: 1px solid var(--color-secondary);
+    box-shadow: inset 0 -2px 0 rgb(255, 198, 30);
+    transition: background-color 0.24s ease-out;
+}
+
+nav .nav-content .menu-item.active li {
+    background-color: var(--color-nav-selected);
+    border-bottom: 1px solid var(--color-secondary);
+    box-shadow: inset 0 -2px 0 rgb(255, 198, 30);
+    color: white;
+}
+
+nav .nav-content ul li[data-submenu]:hover {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+nav .nav-content ul li div.dropdown-menu {
+    position: absolute;
+    width: 100%;
+    transform: rotateX(-90deg);
+    background-color: #FFF;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    visibility: hidden;
+}
+
+nav .nav-content ul li[data-submenu]:hover div.dropdown-menu {
+    visibility: visible;
+    transform: rotateX(0deg);
+    top: var(--nav-height);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    width: 100%;
+    height: auto;
+}
+
+nav .nav-content ul li span.submenu-arrow {
+    padding-left: 4px;
+}
+
+nav .nav-content ul li span.submenu-arrow::after {
+    color: white;
+    content: "▼";
+    font-size: 12px;
+    margin-left: -4px;
+}
+
+nav .nav-content ul li div.dropdown-menu a {
+    display: block;
+    color: var(--color-text);
+    text-align: left;
+    line-height: var(--submenu-item-height);
+    padding: 6px 16px;
+    letter-spacing: 0px;
+}
+
+nav .nav-content ul li div.dropdown-menu a:hover {
+    color: white;
+    background-color: var(--color-primary);
+}
+
+#mobile-menu{
+    display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+    nav {
+        border-bottom: none;
+    }
+
+    nav .nav-content ul {
+        display: flex;
+        flex-direction: column;
+        height: 3rem;
+        overflow: hidden;
+        -moz-transition: all 0.7s ease-in-out;
+        -ms-transition: all 0.7s ease-in-out;
+        -o-transition: all 0.7s ease-in-out;
+        -webkit-transition: all 0.7s ease-in-out;
+        transition: all 0.7s;
+    }
+
+    nav .nav-content ul li {
+        width: 100%;
+        max-height: none;
+        box-shadow: none;
+        border-bottom: none;
+    }
+
+    nav .nav-content .menu-item.active {
+        box-shadow: none;
+        border-bottom: none;
+    }
+
+    nav .nav-content ul li:hover {
+        box-shadow: none;
+        border-bottom: none;
+    }
+
+    nav .nav-content ul li {
+        box-shadow: inset 0px 0px 1px 0px rgb(137, 21, 7);
+    }
+
+    nav .nav-content {
+        width: 100%;
+    }
+
+    #mobile-menu{
+        display: block;
+    }
+
+    nav .nav-content ul li[data-submenu]:hover div.dropdown-menu,
+    nav .nav-content ul li[data-submenu] div.dropdown-menu:hover {
+        background: var(--color-primary-dark);
+        display: block;
+        position: relative;
+        top: 0;
+    }
+
+    nav .nav-content ul li div.dropdown-menu a {
+        color: white;
+        text-align: center;
+        letter-spacing: 0px;
+        font-size: 0.9em;
+    }
+
+    nav .nav-content ul li div.dropdown-menu a:hover {
+        background-color: var(--color-nav-selected);
+    }
+
+    nav .nav-content ul li div.dropdown-menu {
+        background-color: var(--color-primary);
+        box-shadow: none;
+        padding: 0px;
+        transform: none;
+    }
+}

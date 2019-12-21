@@ -1,0 +1,231 @@
+:root {
+    --card-shadow: 8px 8px 12px 0px rgba(0, 0, 0, 0.25);
+}
+
+#app{
+    position: relative;
+    min-height: 80vh;
+}
+
+footer{
+    bottom: 0;
+    position:relative;
+}
+
+.matching-page .match-container{
+    position: relative;
+    height: auto;
+    margin: 2rem 20%;
+    padding: .5rem;
+    border: .05rem solid #444444;
+    -webkit-box-shadow: var(--card-shadow);
+    -moz-box-shadow: var(--card-shadow);
+    box-shadow: var(--card-shadow);
+    background-color: white;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 0.5fr;
+    grid-template-areas: "img bio matching";
+}
+
+.matching-page .empty-match-container{
+    position: relative;
+    display: flex;
+    height: 4rem;
+    margin: 2rem 20%;
+    padding: .5rem;
+    border: .05rem solid #444444;
+    -webkit-box-shadow: var(--card-shadow);
+    -moz-box-shadow: var(--card-shadow);
+    box-shadow: var(--card-shadow);
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+.matching-page .match-container .match-picture img{
+    height: 9rem;
+    border-radius: 5rem;
+    -webkit-box-shadow: var(--card-shadow);
+    -moz-box-shadow: var(--card-shadow);
+    box-shadow: var(--card-shadow);
+}
+
+.matching-page .match-container .match-picture{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.match-info1{
+    display: grid;
+    padding-left: .5rem;
+    padding-top: 1.5rem;
+}
+
+.match-picture { grid-area: img; }
+
+.match-info1 { grid-area: bio; }
+
+.hidden{
+    display: none !important;
+}
+
+.match-button {
+    grid-area: matching;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: .9rem;
+    border-left: black solid .02rem;
+    padding: .5rem;
+}
+
+.match-button a{
+    cursor: pointer;
+}
+
+.filter-header, .destenation-header{
+    border-bottom: .05rem solid #444444;
+    text-align: center;
+    cursor: pointer;
+}
+
+.filter-wrapper, .destenationWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1.5rem;
+}
+
+.matching-filter, .matching-destenation{
+    overflow: hidden;
+    border: .05rem solid #444444;
+    width: 60%;
+    background: white;
+
+    -moz-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    -webkit-transition: all 0.7s ease-in-out;
+    transition: all 0.7s;
+}
+
+.filter-container{
+    padding-top: 1rem;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "filter-sorting filter-locatie" "filter-starting-date filter-ending-date";
+}
+
+.filter-header, .destenation-header{
+    background-color: var(--color-primary);
+}
+
+.filter-header h1, .destenation-header h1{
+    color: white;
+    font-size: 1.4rem;
+}
+
+.filter-container input, .filter-container select{
+    align-self: center;
+    justify-self: center;
+}
+.filter-container input{
+    width: 79.4%;
+}
+
+.filter-container select{
+    width: 80%;
+}
+
+#filter-sorting{
+    grid-area: filter-sorting;
+}
+
+#filter-locatie{
+    grid-area: filter-locatie;
+}
+
+#filter-starting-date{
+    grid-area: filter-starting-date;
+}
+
+#filter-ending-date{
+    grid-area: filter-ending-date;
+}
+
+.trip-container{
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "trip-header" "trip-information";
+
+    border-bottom: 0.05rem solid #444444;
+}
+
+.trip-header{
+    grid-area: trip-header;
+    align-self: center;
+    justify-self: center;
+}
+
+.trip-information{
+    display: grid;
+    grid-area: trip-information;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "trip-start-date trip-end-date";
+}
+
+#trip-start-date{
+    grid-area: trip-start-date;
+    align-self: center;
+    justify-self: center;
+}
+
+#trip-end-date{
+    grid-area: trip-end-date;
+    align-self: center;
+    justify-self: center;
+}
+
+.destenation-container .active{
+    color: white;
+    background-color: var(--background-color);
+    border-bottom: 0.1rem solid #D81E05;
+}
+
+@media only screen and (max-width: 1100px) {
+    .matching-page .match-container{
+        display: block;
+        margin: 2rem 2.5rem;
+        height: auto;
+        text-align: center;
+    }
+
+    .match-button {
+        border-top: black solid .02rem;
+        border-left: 0;
+        height: 2rem;
+        margin-top: 1rem;
+    }
+
+    .matching-page .match-container .match-picture{
+        margin: 1rem 0;
+    }
+
+    .matching-filter, .matching-destenation{
+        margin: 0 2.5rem;
+        width: 100%;
+    }
+
+    .matching-page .empty-match-container{
+        margin: 2rem 2.5rem;
+    }
+}

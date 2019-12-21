@@ -1,0 +1,18 @@
+* {
+	font-family: "Mukta", "uni_sansbold", "Open Sans Semibold", "Helvetica", "sans-serif";
+	text-rendering: optimizeLegibility;
+	color: var(--color-text);
+	text-shadow: rgba(0, 0, 0, .1) 0 0 1px;
+}
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+
+p {}
+
+.centered {
+	text-align: center;
+}

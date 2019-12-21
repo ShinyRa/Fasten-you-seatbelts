@@ -1,0 +1,35 @@
+<section class="chatContainer">
+	<div class="chatWindow">
+		<div class="people">
+			<div class="person" onclick="loadChat(); mobile_match_toggle()" style="display: none;">
+				<span class="bulb"></span>
+                <a href="#profileview" class="match-picture">
+    				<img class="profile-pic" src="./Resources/Img/default_profile.jpg" height="38" width="38">
+                </a>
+				<span class="name"></span>
+			</div>
+		</div>
+		<div class="chat">
+			<div class="header">
+				<a href="javascript:void(0);" onclick="mobile_match_toggle()" class="back"><</a>
+				<span class="name"></span>
+			</div>
+			<div class="messages">
+				<div class="messageRow" style="display: none;">
+					<div class="message">
+						<p></p>
+							<p class="time"></p>
+					</div>
+				</div>
+			</div>
+			<div class="chatControl">
+				<div class="inputContainer">
+					<input id="text-area" type="text" placeholder="Stuur een bericht..." name="message" onsubmit="sendMessage();" maxlength="100" />
+					<label for="message"><a onclick="sendMessage();" class="send">></a></label>
+				</div>
+			</div>
+			<div>
+		</div>
+	</div>
+	</div>
+</section>

@@ -1,0 +1,17 @@
+:root {
+	--color-visited-link: rgb(137, 21, 7);
+}
+
+a {
+	color: red;
+	text-decoration: none;
+}
+
+a:visited {
+	color: var(--color-visited-link);
+}
+
+a:hover {
+	color: black;
+	text-decoration: underline;
+}

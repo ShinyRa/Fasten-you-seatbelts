@@ -1,0 +1,316 @@
+.chatContainer {
+	background-image: url("../../Img/chat_background.png");
+	background-size: 200px;
+	height: 83vh;
+}
+
+.chatWindow .people {
+	box-shadow: 1px 5px 16px #7c7b7b;
+	width: 20%;
+	float: left;
+	overflow-y: auto;
+	height: 83vh;
+	background-color: darkred;
+	transition: width 0.25s ease-in-out;
+}
+
+.chatWindow .myMessage .time{
+	font-size: 13px;
+	font-style: italic;
+	color: #000000;
+	font-weight: bold;
+}
+
+.chatWindow .message .time{
+	font-size: 13px;
+	font-style: italic;
+	color: #000000;
+	font-weight: bold;
+}
+
+.chatWindow .people img {
+	float: left;
+	border-radius: 90px;
+	padding: 5px;
+}
+
+.chatWindow .people .person span.name {
+	float: left;
+	font-size: 1.1em;
+	line-height: 3.4em;
+	padding-left: 10px;
+	color: white;
+	position: relative;
+}
+.chatWindow .people .person:hover{
+	background-color: darkred;
+}
+
+.chatWindow .people .person:nth-child(even) {
+	background: #b81a04;
+}
+
+.chatWindow .people .person {
+	border-bottom: 1px solid #a50808;
+	border-right: 4px solid #7c0c0c;
+	background: #d81e05;
+	height: 55px;
+	overflow: hidden;
+}
+
+.chatWindow .people .person.selected {
+	background: white;
+	border-right: 12px solid #a50808;
+	transition: border-right 0.20s ease-out;
+}
+
+.chatWindow .people .person.selected span.name {
+	font-weight: bold;
+	color: #d81e05;
+}
+
+.chatWindow .people .person:hover {
+	cursor: pointer;
+}
+
+.chatWindow .people .person .bulb {
+	left: 23px;
+	background: red;
+	border-radius: 20px;
+	position: absolute;
+	padding-left: 7px;
+	padding-right: 6px;
+	font-size: 0.7em;
+	font-weight: bold;
+	line-height: 18px;
+	color: white;
+}
+
+.chatWindow .chat {
+	width: 80%;
+	float: left;
+	height: 80vh;
+}
+
+.chatWindow .chat .header {
+	height: 7%;
+	width: 100%;
+	background: var(--color-primary);
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	border-bottom: 3px solid #8d0000;
+	position: relative;
+	display: none;
+}
+
+.chatWindow .chat .header a.back {
+	color: white;
+	position: absolute;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 2em;
+	right: 10%;
+	text-shadow: 1px 2px #949494;
+}
+
+.chatWindow .chat span.name {
+	color: white;
+	display: block;
+	padding-top: 13px;
+}
+
+.chatWindow .myMessage {
+	float: right;
+	background: #e9442e;
+	text-align: right;
+	border-radius: 7px 0px 7px 7px;
+	margin: 4px;
+	margin-right: 5%;
+	padding: 10px 20px;
+	border: 1px solid #823737;
+	max-width: 400px;
+	width: max-content;
+	font-size: 1em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.chatWindow .myMessage p {
+	color: white;
+}
+
+.chatWindow .message {
+	float: left;
+	background: white;
+	border-radius: 7px 7px 7px 0;
+	margin: 4px;
+	margin-left: 5%;
+	padding: 10px 20px;
+	border: 1px solid #c8c8c8;
+	max-width: 400px;
+	width: max-content;
+	font-size: 1em;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.chatWindow .messages {
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column-reverse;
+	height: 82%;
+	position: relative;
+	width: 90%;
+	margin: auto;
+	overflow-x: hidden;
+}
+
+.chatWindow .chatControl {
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 6%;
+	position: relative;
+}
+
+.chatWindow .chatControl input[type="text"] {
+	width: 75%;
+	border: 2px solid #ba5d5d;
+	border-top: 2px solid #ff1e1e;
+	padding: 5px;
+	padding-left: 15px;
+	font-size: 1em;
+	float: left;
+	border-right: none;
+}
+
+.chatWindow .chatControl input[type="text"]:focus {
+	outline: none;
+}
+
+.chatWindow .chatControl label  {
+	background: #d81e05;
+	float: left;
+	height: 41px;
+}
+
+.chatWindow .chatControl a.send {
+	color: white;
+	background: #d81e05;
+	font-size: 1.5em;
+	padding-left: 17px;
+	padding-right: 17px;
+	border-radius: 0px 10px 10px 0px;
+}
+
+.chatWindow .chatControl a.emojis {
+	font-size: 2em;
+	background: var(--color-primary);
+}
+
+.chatWindow .chatControl .emojipanel {
+	padding: 20px;
+	font-size: 2em;
+	background: white;
+	overflow-y: scroll;
+	height: 300px;
+	box-shadow: 2px 2px 14px 1px #b6b6b6;
+	width: 500px;
+	position: absolute;
+	bottom: 50px;
+	right: 0;
+	display: none;
+}
+
+.chatWindow .chatControl .emojipanel .emojis {
+	display: none;
+}
+
+.chatWindow .chatControl .emojipanel span.close {
+	position: absolute;
+	top: -10px;
+	right: 0;
+	color: black;
+	cursor: pointer;
+	font-size: 1.3em;
+}
+
+.chatWindow .chatControl a.send:hover,
+.chatWindow .chatControl a.emojis:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.chatWindow .messages a.up {
+	font-size: 3em;
+	background: white;
+	color: #d81e05;
+	border-radius: 60px;
+	position: absolute;
+	top: 5%;
+	right: 15%;
+	left: 15%;
+	width: 40px;
+	height: 38px;
+	margin: 0 auto;
+	border: 1px solid #b3b3b3;
+	display: none;
+	text-align: center;
+	text-decoration: none;
+}
+
+.chatWindow .messages a.up:hover {
+	text-decoration: none;
+}
+
+/**
+ * Chat on mobile does not include people sidebar.
+ */
+@media only screen and (max-width: 767px) {
+	.chatWindow .people{
+		width: 50%;
+	}
+}
+@media only screen and (max-width: 1100px) {
+	/*header {
+		display: none;
+	}
+
+	nav {
+		display: none;
+	}*/
+
+	.chatWindow .people {
+		position: absolute;
+		z-index: 1;
+	}
+
+	.chatWindow .messages{
+		height: 58%;
+	}
+
+	.chatWindow .chat {
+		width: 100%;
+		height: 100vh;
+	}
+	.chatWindow .myMessage{
+		width: auto;
+	}
+
+
+
+	.chatWindow .chat .header {
+		display: block;
+	}
+}
+
+
+/**
+ * Support for extra small devices.
+ */
+@media only screen and (max-width: 600px) {
+	.chatWindow .chatControl input[type="text"] {
+		width: 70%;
+	}
+}

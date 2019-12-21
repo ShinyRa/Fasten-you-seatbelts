@@ -1,0 +1,58 @@
+<section class="page profile-page">
+    <article>
+        <div class="grid-container-profilepage-view">
+            <div class="ProfilePictureView">
+                <img id="profile_picture_view" src="./Resources/Img/default_profile.jpg">
+            </div>
+            <div class="PersonalInfo">
+                <div class="section_titles">Informatie</div>
+                <div class="left">
+                    <label class="profile-label">Voornaam</label>
+                    <input readonly class="input-profile" type="text" name="voornaam" placeholder="">
+                    <label class="profile-label">Tussenvoegsel</label>
+                    <input readonly class="input-profile" type="text" name="tussenvoegsel" placeholder="">
+                    <label class="profile-label">Achternaam</label>
+                    <input readonly class="input-profile" type="text" name="achternaam" placeholder="">
+                    <label class="profile-label">Geboortedatum</label>
+                    <input readonly class="input-profile" type="date" name="geboortedatum">
+                    <label class="profile-label">Beschrijving</label>
+                    <div class="userinput-container">
+                        <textarea readonly rows="5" cols="20" class="BIO-textarea input-profile" name="beschrijving" placeholder=""></textarea>
+                    </div>
+                </div>
+                <div class="right">
+                    <label class="profile-label">Adres</label>
+                    <input readonly class="input-profile" type="text" name="adres" placeholder="">
+                    <label class="profile-label">Postcode</label>
+                    <input readonly class="input-profile" type="text" name="postcode" placeholder="">
+                    <label class="profile-label">Email</label>
+                    <input readonly class="input-profile" type="text" name="email" placeholder="">
+                    <label class="profile-label">Telefoonnummer</label>
+                    <input readonly class="input-profile" type="text" name="telefoonnummer" placeholder="">
+                    <label class="profile-label">Interesses</label>
+                    <textarea readonly rows="5" cols="20" class="BIO-textarea input-profile" name="interesses" placeholder=""></textarea>
+                </div>
+            </div>
+            <div class="PlannedTrips">
+                <div class="section_titles">Geplande reizen</div>
+                <p id="no-trips" style="display: none">Deze gebruiker heeft momenteel geen reizen ingepland</p>
+                <div class="reizen">
+                    <table class="reis-table">
+                        <thead>
+                        <tr>
+                            <th>Begin reis</th>
+                            <th>Eind reis</th>
+                            <th>Bestemming</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="match-button">
+            <a id="delete-match" style="display: none"><img src="https://i.ibb.co/HtxwPjV/icons8-delete-50-1.png" alt="icons8-delete-50-1" border="0"></a>
+        </div>
+    </article>
+</section>

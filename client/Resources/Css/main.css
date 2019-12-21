@@ -1,0 +1,54 @@
+/**
+ * Initialize website wide css color variables
+ */
+:root {
+	--color-primary: #D81E05;
+	--color-primary-dark: rgb(165, 23, 3);
+	--color-secondary: #FFC61E;
+    --color-text: #3b3b3b;
+	--background-color: #EDEDED;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	outline-color: var(--color-primary);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+body {
+	background-color: var(--background-color);
+}
+
+h2 {
+	font-size: 2em;
+}
+
+@media only screen and (min-width: 1100px) {
+	.hidden-for-small {
+	    display: block;
+	}
+	.hidden-for-large {
+		display: none !important;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.hidden-for-small {
+	    display: none;
+	}
+	.hidden-for-large {
+		display: block;
+	}
+}
